@@ -43,5 +43,28 @@ Container:
  Developer write code > create Docker file > Build Docker Image > Run docker container > push image into Docker hub > Deploy anywhere
 
  **How to create container**
+step1 : physical server
+        create ec2 instance or laptop
+step2 : Install Docker
+       sudo apt install docker.io
+       (Now internally installed: Docker client, docker daemon,containerd,runc)
+step3 :check docker --version
+step4 : start docker service
+        sudo systemctl start docker
+        sudo systemctl enable docker
+        sudo systemctl status docker
+step5  :pull image
+        container directly didn't create we need to image.
+        docker pull nginx (what happens::go to docker hub and install docker image)
+step6 : create/run container
+       docker run -d nginx (now container running)
+
+** Docker archiecture **
+above step 2 we install docker only but internal docker client, docker daemon, containerd, runc, also come.
+when we execute any command( docker build/run) docker client send request to docker daemon. dokcer daemon manages image checking, networking, and container operation.containerd manages lifecycle of container
+(but not here create container) runc creates isoloted containers using linux kernel features like namespaces and cgroups. 
+namespaces : each conatiner separated isoloted.Container1 cannot see Container2 process.
+cgroups : resuorce cpu, memory, Resource limits.
+          
 
 
