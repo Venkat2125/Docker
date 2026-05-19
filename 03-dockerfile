@@ -1,0 +1,60 @@
+Dockerfile
+**first why Dockerfile came?
+
+old method: Devleloper says:
+Install Java,
+Install python
+COpy code
+Run application
+MAnual steps: problem human errors, different envronment,Time waste, hard to reproduce
+
+**Docker Solution**
+Docker says:
+Infrastructure setup also write as code. this is Dockerfile
+
+**what is Dockerfile?**
+A Dockerfile serves as a blueprint for creating Docker images. It contains a series of commands that Docker uses to assemble an image layer by layer. This automation ensures that applications run consistently across different environments, from development to production.
+
+Example
+
+FROM openjdk:17
+
+WORKDIR /app
+
+COPY target/banking-app.jar .
+
+EXPOSE 8080
+
+ENV ENVIRONMENT=prod
+
+CMD ["java","-jar","banking-app.jar"]
+
+LAyers:
+layer 1: FROM : use base image, docker first downloads:
+why Needed?
+Container is not full OS.
+we need: JAva binaries, Libraries,Filestem FROM gives all these.
+**Internally*
+Base Image layer created
+**Without FROM**
+No runtie environments
+APllication cannot run.
+
+LAyer 2: WORKDIR : set working drectory inside image. (Without WORKDIR files will put random location)
+
+**Internally*
+Docker creates directory layer.
+
+Layer 3: COPY local machine file to image filesystem.
+
+**if app changes:**
+only COPY layer  rebuild.
+Other layers reused. This is docker cahing power.
+
+Layer 4: Expose 808 Application runs on port 8080
+Expose actually doesn't port open 
+Documentation purpose mainly.
+
+Layer 5: ENV, varibales inside Container
+
+layer 6: CMD ["java", "jar","banking-app.jar"]
