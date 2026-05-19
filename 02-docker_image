@@ -1,0 +1,30 @@
+# what is Docker image?
+Docker image is a packaged blueprint containing application code, runtime, dependencies, libraries, and filesystem required to run an application
+
+**Real Time example**
+suppose java banking application
+Needed:
+JAva
+JAr file
+Libraries, Environment
+"all packed into": Docker Image
+
+**Image Internally**
+Docker Image = multiple layers.
+ Example Dockerfile:
+ FROM ubuntu # layer 1
+ RUN ap update #layer 2
+ CMD ["java","-jar","/app/app.jar"]
+
+ Each instruction = Layer
+
+**Why Layers?**
+Layrs make Docker:
+Fast, Lightweigt, Resuable.1
+
+** First problem understand**
+suppose 5GB softweare package build. if did small change.
+Without layers: Again complete 5GB rebuild
+Docker says:
+why rebuild everthing?
+Only changed part rebuild thsi layer concept: with docker docker layers check cache.
