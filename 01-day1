@@ -1,0 +1,47 @@
+**what is Docker?**
+Docker is a containerization platform used to build, package, and deploy applications inside containers.
+
+It packages the application code, dependencies, libraries, and configurations into a single unit called a container.
+
+**why use docker?**
+Before Docker, developers faced many problems while deploying applications.
+
+An application that worked on the developer's laptop often failed in production due to:
+- Different Java/Python versions
+- Configuration mismatch
+- Missing libraries
+- Different environment variables
+- Operating system differences
+
+Docker solves these problems by packaging everything required for the application into a container.
+This ensures the application runs the same in every environment.
+
+Docker helps package all this things into unit called container
+
+**what is container?**
+A container is a lightweight and isolated environment used to run applications.
+
+Containers share the host operating system kernel, so they do not require a complete operating system like virtual machines.
+
+A container is created from a Docker image.
+
+**What is VM? differnece VM vs Container**
+VVirtualization is the process of creating multiple virtual machines on a single physical server using a hypervisor.
+Virtual Machine:
+- Each VM has its own operating system
+- Heavyweight
+- Takes more RAM and storage
+- Boot time is slow
+
+Container:
+- Containers share the host operating system
+- Lightweight
+- Uses less resources
+- Starts very fast
+
+**Docker workflow**
+ Developer write code > create Docker file > Build Docker Image > Run docker container > push image into Docker hub > Deploy anywhere
+
+ **How to create container**
+
+
